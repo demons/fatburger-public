@@ -294,6 +294,10 @@ class Chunk {
 
   // Handlers
   _addIngredientClickHandler() {
+    if (this._products.length === 0) {
+      alert('Список продуктов пуст! Сначала нужно заполнить его!');
+      return;
+    }
     const newIngredient = (0,_utils_chunk__WEBPACK_IMPORTED_MODULE_0__.createIngredient)();
     this._chunk.ingredients = (0,_utils_common__WEBPACK_IMPORTED_MODULE_1__.addItem)(this._chunk.ingredients, newIngredient);
     this._changeData(this._chunk);
@@ -425,6 +429,7 @@ const createProduct = (title, energy, protein, fat, carb, measure, measureCount 
     carb,
     measure,
     measureCount,
+    isDeleted: false,
   };
 };
 
@@ -769,8 +774,8 @@ const createChunkTemplate = (chunk) => {
         </tr>
       </table>
       <div class="chunk-controls">
-        <button type="button" class="btn btn-add visually-hidden"></button>
-        <button type="button" class="btn btn-remove visually-hidden"></button>
+        <button type="button" class="btn btn-add"></button>
+        <button type="button" class="btn btn-remove"></button>
       </div>
     </div>
     <ul class="component-list"></ul>
@@ -1030,9 +1035,9 @@ const createProductListControlTemplate = (products, selectedProductId) => {
   let options = '';
 
   for (const product of products.values()) {
-    const { id, title } = product;
+    const { id, title, isDeleted = false } = product;
     const isSelected = id === selectedProductId ? 'selected' : '';
-    options += `<option value="${id}" ${isSelected}>${title}</option>`;
+    options += `<option value="${id}" ${isSelected}>${title} ${isDeleted ? '[ УДАЛЕН ]' : ''}</option>`;
   }
 
   return `<select>${options}</select>`;
@@ -1207,8 +1212,22 @@ __webpack_require__.r(__webpack_exports__);
 const CHUNK_COUNT = 3;
 const PRODUCT_COUNT = 10;
 
-const products = new Array(PRODUCT_COUNT).fill(null).map(() => (0,_mock_product__WEBPACK_IMPORTED_MODULE_1__.generateProduct)());
-const chunks = new Array(CHUNK_COUNT).fill(null).map(() => (0,_mock_chunk__WEBPACK_IMPORTED_MODULE_0__.generateChunk)(products));
+// const products = new Array(PRODUCT_COUNT).fill(null).map(() => generateProduct());
+let products = [];
+let chunks = [];
+
+if (localStorage.getItem('products')) {
+  products = JSON.parse(localStorage.getItem('products'));
+}
+
+if (localStorage.getItem('chunks')) {
+  chunks = JSON.parse(localStorage.getItem('chunks'));
+} else {
+  const titles = ['Завтрак', 'Обед', 'Ужин'];
+  chunks = new Array(titles.length).fill(null).map((item, index) => (0,_utils_chunk__WEBPACK_IMPORTED_MODULE_2__.createChunk)(titles[index]));
+}
+
+// const chunks = new Array(CHUNK_COUNT).fill(null).map(() => generateChunk(products));
 
 const mainElement = document.querySelector('.main');
 
@@ -1244,6 +1263,7 @@ const compute = (chunks) => {
 const changeData = (updatedData) => {
   const amount = compute(updatedData);
   renderAmount(amount);
+  localStorage.setItem('chunks', JSON.stringify(updatedData));
   chunkListPresenter.init(updatedData, products);
 };
 
