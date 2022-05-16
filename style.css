@@ -1,0 +1,136 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.main-header {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.main {
+	margin-bottom: 10px;
+}
+
+.main-footer {
+	border-top: 1px solid #ccc;
+}
+
+.main-header-nav {
+	display: flex;
+	align-items: center;
+}
+
+.site-navigation {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+}
+
+.site-navigation-item {
+	margin-right: 20px;
+}
+
+.site-navigation-item:last-child {
+	margin-left: 0;
+}
+
+.site-navigation-link {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.site-navigation-link:hover {
+	color: blueviolet;
+}
+
+.btn {
+  border: 1px solid #eee;
+	border-radius: 2px;
+	background-color: #eeeeee;
+	color: #333;
+	cursor: pointer;
+	margin: 2px;
+  padding: 5px 10px;
+}
+
+.btn:hover {
+	background-color: 1px solid #ccc;
+}
+
+.btn-minimize {
+	background: url('img/icon-minimize.png') no-repeat 50% 50%;
+}
+
+.btn-add {
+  width: 35px;
+  height: 35px;
+	background: url('img/icon-add.png') no-repeat 50% 50%;
+}
+
+.btn-edit {
+  width: 35px;
+  height: 35px;
+	background: url('img/icon-edit.png') no-repeat 50% 50%;
+}
+
+.btn-remove {
+  width: 35px;
+  height: 35px;
+	background: url('img/icon-remove.png') no-repeat 50% 50%;
+}
+
+.visually-hidden {
+	visibility: hidden;
+}
+
+.btn-success {
+  border-color: #198754;
+  background-color: #198754;
+  color: white;
+}
+.btn-success:hover {
+  background-color: #198050;
+}
+
+.btn-error {
+  border-color: #ac1310;
+  background-color: #ac1310;
+  color: white;
+}
+.btn-error:hover {
+  background-color: #ac0806;
+}
+
+.form-input {
+  margin: 2px;
+  padding: 5px 10px;
+  border: 1px solid #555;
+  border-radius: 2px;
+}
+
+.btn-middle {
+  width: 90px;
+}

@@ -1,0 +1,92 @@
+.chunk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chunk-list-item {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+.chunk-list-item:hover .chunk-controls .btn.visually-hidden {
+  visibility: visible;
+}
+
+.chunk-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.chunk-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  background-color: #eee;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.chunk-title {
+  padding: 2px 5px;
+  font-size: 18px;
+  margin: 0;
+}
+
+.chunk-info-table {
+  border-collapse: collapse;
+  justify-self: center;
+}
+
+.chunk-controls {
+  display: flex;
+  justify-self: right;
+}
+
+.chunk-info-table th,
+.chunk-info-table td {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.add-chunk-form {
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.add-chunk-form input,
+.add-chunk-form button {
+  font-size: 16px;
+}
+
+@media (max-width: 650px) {
+  .chunk-header {
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-areas: "title title controls"
+                          "table table controls";
+    grid-gap: 5px;
+    padding: 5px;
+  }
+
+  .chunk-title {
+    justify-self: center;
+    grid-area: title;
+  }
+
+  .chunk-info-table {
+    grid-area: table;
+  }
+
+  .chunk-controls {
+    grid-area: controls;
+  }
+}
+
+@media (max-width: 580px) {
+  .chunk-controls {
+    flex-direction: column;
+  }
+}

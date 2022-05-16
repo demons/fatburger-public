@@ -11,9 +11,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="chunks.css">
-	<link rel="stylesheet" href="ingredient.css">
-	<link rel="stylesheet" href="amount.css">
 </head>
 <body>
 	<header class="main-header">
@@ -37,11 +34,20 @@
 
 	<main class="main container">
 		<!-- <h1>Ингредиенты</h1> -->
+    <button class="btn btn-error btn-clear">Удалить все</button>
 	</main>
 
 	<footer class="main-footer container">
 		© 2022 Fatburger
 	</footer>
-	<script src="main.js"></script>
+
+  <script>
+    const clearButton = document.querySelector('.btn-clear');
+    clearButton.addEventListener('click', () => {
+      localStorage.removeItem('products');
+      localStorage.removeItem('chunks');
+      alert('Вы все удалили!');
+    });
+  </script>
 </body>
 </html>
