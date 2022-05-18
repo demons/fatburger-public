@@ -10,6 +10,10 @@ body {
 	font-size: 14px;
 }
 
+select {
+  padding: 5px;
+}
+
 .container {
 	margin: 0 auto;
 	max-width: 1200px;
