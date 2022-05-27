@@ -35,6 +35,8 @@
 	<main class="main container">
 		<!-- <h1>Ингредиенты</h1> -->
     <button class="btn btn-error btn-clear">Удалить все</button>
+
+    <ul class="history"></ul>
 	</main>
 
 	<footer class="main-footer container">
@@ -48,6 +50,23 @@
       localStorage.removeItem('chunks');
       alert('Вы все удалили!');
     });
+
+    const historyElement = document.querySelector('.history');
+    const story = JSON.parse(localStorage.getItem('story'));
+    Object.entries(story).forEach(item => {
+      console.log(item);
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#" data-id="${item[0]}">${item[0]}</a>`;
+      historyElement.appendChild(li);
+    });
+
+    historyElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = e.target.dataset.id;
+      const chunks = story[id].chunks;
+      localStorage.setItem('chunks', JSON.stringify(chunks));
+    });
+
   </script>
 </body>
 </html>
