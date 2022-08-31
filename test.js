@@ -1,1 +1,10 @@
-alert('hello');
+console.log('test hello');
+var divElement = document.createElement('div');
+divElement.style.border = `1px solid black`;
+divElement.style.position = `absolute`;
+divElement.style.left = `10px`;
+divElement.style.top = `10px`;
+divElement.style.width = `200px`;
+divElement.style.height = `200px`;
+divElement.style.background = `green`;
+document.body.appendChild(divElement);
