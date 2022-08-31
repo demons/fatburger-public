@@ -47,7 +47,7 @@ function show() {
 }
 
 document.addEventListener('selectionchange', () => {
-    divElement.visibility = 'hidden';
+    divElement.style.visibility = 'hidden';
     // if (window.getSelection()) {
     //     var select = window.getSelection();
     //     var text = select.toString();
