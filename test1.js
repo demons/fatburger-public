@@ -7,6 +7,7 @@ divElement.style.top = `10px`;
 divElement.style.width = `200px`;
 divElement.style.height = `200px`;
 divElement.style.background = `white`;
+divElement.style.visibility = 'hidden';
 document.body.appendChild(divElement);
 
 function getData() {
@@ -28,12 +29,21 @@ button2.textContent = 'greeting';
 button1.addEventListener('click', getData);
 button2.addEventListener('click', greeting);
 
-document.addEventListener('touchend', () => {
+// document.addEventListener('touchend', () => {
+//     if (window.getSelection()) {
+//         var select = window.getSelection();
+//         console.log(select.toString());
+//     }
+// })
+function show() {
     if (window.getSelection()) {
         var select = window.getSelection();
-        console.log(select.toString());
+        var text = select.toString();
+        divElement.textContent = text;
+        divElement.style.visibility = 'visible';
+        console.log(text);
     }
-})
+}
 
 document.addEventListener('selectionchange', () => {
     if (window.getSelection()) {
