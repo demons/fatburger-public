@@ -6,5 +6,5 @@ divElement.style.left = `10px`;
 divElement.style.top = `10px`;
 divElement.style.width = `200px`;
 divElement.style.height = `200px`;
-divElement.style.background = `green`;
+divElement.style.background = `blue`;
 document.body.appendChild(divElement);
