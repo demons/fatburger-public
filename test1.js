@@ -35,6 +35,13 @@ document.addEventListener('touchend', () => {
     }
 })
 
+document.addEventListener('selectionchange', () => {
+    if (window.getSelection()) {
+        var select = window.getSelection();
+        console.log('selection change:', select.toString());
+    }
+})
+
 document.body.appendChild(button1);
 document.body.appendChild(button2);
 
