@@ -47,6 +47,8 @@ document.addEventListener('selectionchange', () => {
 document.body.appendChild(button1);
 document.body.appendChild(button2);
 
+document.addEventListener('contextmenu', (e) => {e.preventDefault()});
+
 
 
 
