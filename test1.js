@@ -35,6 +35,7 @@ button2.addEventListener('click', greeting);
 //         console.log(select.toString());
 //     }
 // })
+
 function show() {
     if (window.getSelection()) {
         var select = window.getSelection();
@@ -46,12 +47,13 @@ function show() {
 }
 
 document.addEventListener('selectionchange', () => {
-    if (window.getSelection()) {
-        var select = window.getSelection();
-        var text = select.toString();
-        divElement.textContent = text;
-        console.log('selection change:', text);
-    }
+    divElement.visibility = 'hidden';
+    // if (window.getSelection()) {
+    //     var select = window.getSelection();
+    //     var text = select.toString();
+    //     divElement.textContent = text;
+    //     console.log('selection change:', text);
+    // }
 })
 
 document.body.appendChild(button1);
