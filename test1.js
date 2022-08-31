@@ -21,12 +21,12 @@ function greeting() {
 }
 
 var button1 = document.createElement('button');
-button1.value = 'getData';
+button1.textContent = 'getData';
 var button2 = document.createElement('button');
-button2.value = 'greeting';
+button2.textContent = 'greeting';
 
-button1.click = getData;
-button2.click = greeting;
+button1.addEventListener('click', getData);
+button2.addEventListener('click', greeting);
 
 document.body.appendChild(button1);
 document.body.appendChild(button2);
