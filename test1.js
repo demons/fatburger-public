@@ -28,6 +28,13 @@ button2.textContent = 'greeting';
 button1.addEventListener('click', getData);
 button2.addEventListener('click', greeting);
 
+document.addEventListener('touchend', () => {
+    if (window.getSelection()) {
+        var select = window.getSelection();
+        console.log(select.toString());
+    }
+})
+
 document.body.appendChild(button1);
 document.body.appendChild(button2);
 
