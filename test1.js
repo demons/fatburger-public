@@ -6,7 +6,7 @@ divElement.style.left = `10px`;
 divElement.style.top = `10px`;
 divElement.style.width = `200px`;
 divElement.style.height = `200px`;
-divElement.style.background = `blue`;
+divElement.style.background = `white`;
 document.body.appendChild(divElement);
 
 function getData() {
@@ -38,7 +38,9 @@ document.addEventListener('touchend', () => {
 document.addEventListener('selectionchange', () => {
     if (window.getSelection()) {
         var select = window.getSelection();
-        console.log('selection change:', select.toString());
+        var text = select.toString();
+        divElement.textContent = text;
+        console.log('selection change:', text);
     }
 })
 
